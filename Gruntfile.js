@@ -35,6 +35,10 @@ module.exports = function (grunt) {
             css: {
                 src: 'src/ion-autocomplete.css',
                 dest: 'dist/<%= pkg.name %>.css'
+            },
+            scss: {
+                src: 'src/ion-autocomplete.scss',
+                dest: 'dist/<%= pkg.name %>.scss'
             }
         },
         uglify: {

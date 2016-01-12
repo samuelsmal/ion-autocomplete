@@ -74,6 +74,13 @@ bower install ion-autocomplete --save
 <script src="lib/ion-autocomplete/dist/ion-autocomplete.js"></script>
 <link href="lib/ion-autocomplete/dist/ion-autocomplete.css" rel="stylesheet">
 ```
+
+You can also compile the style sheet yourself and add the SCSS file to your main SCSS file:
+
+```scss
+@import 'lib/ion-autocomplete/dist/ion-autocomplete.scss';
+```
+
 3. Add `ion-autocomplete` as a dependency on your Ionic app:
 ```javascript
 angular.module('myApp', [
