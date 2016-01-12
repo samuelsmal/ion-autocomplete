@@ -444,11 +444,16 @@ and then add your custom additions to it.
 > Please also take care when you change how the items are shown or what method is called if an item is clicked, 
 > because changing this could make the component unusable.
 
-You will need to set the proper `randomCssClass` for the outer most div container in your template and you can get the value by using the `{{viewModel.randomCssClass}}` expression
-like in the following example:
+You will need to set the proper `randomCssClass` for the outer most div
+container in your template and you can get the value by using the
+`{{viewModel.randomCssClass}}` expression like in the following examples:
 
 ```html
-<div class="ion-autocomplete-container {{viewModel.randomCssClass}} modal" style="display: none;">
+<div class="ion-autocomplete-container {{viewModel.randomCssClass}} modal">
+```
+
+```html
+<div class="ion-autocomplete-container modal" ng-class="viewModel.randomCssClass">
 ```
 
 ### Template data
