@@ -17,7 +17,8 @@ angular.module('ion-autocomplete', []).directive('ionAutocomplete', [
                 placeholder: '@',
                 cancelLabel: '@',
                 selectItemsLabel: '@',
-                selectedItemsLabel: '@'
+                selectedItemsLabel: '@',
+                modelRenderFunction: '@'
             },
             controllerAs: 'viewModel',
             controller: ['$attrs', '$timeout', '$scope', function ($attrs, $timeout, $scope) {
