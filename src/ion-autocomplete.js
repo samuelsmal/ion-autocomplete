@@ -19,7 +19,7 @@ angular.module('ion-autocomplete', []).directive('ionAutocomplete', [
                 cancelLabel: '@',
                 selectItemsLabel: '@',
                 selectedItemsLabel: '@',
-                modelRenderFunction: '@'
+                clearInputAfterSelection: '@'
             },
             controllerAs: 'viewModel',
             controller: ['$attrs', '$timeout', '$scope', function ($attrs, $timeout, $scope) {
@@ -36,6 +36,7 @@ angular.module('ion-autocomplete', []).directive('ionAutocomplete', [
                     controller.cancelLabel = valueOrDefault(controller.cancelLabel, 'Done');
                     controller.selectItemsLabel = valueOrDefault(controller.selectItemsLabel, "Select an item...");
                     controller.selectedItemsLabel = valueOrDefault(controller.selectedItemsLabel, $interpolate("Selected items{{maxSelectedItems ? ' (max. ' + maxSelectedItems + ')' : ''}}:")(controller));
+                    controller.clearInputAfterSelection = valueOrDefault(controller.clearInputAfterSelection, "true");
                 });
 
                 // set the default values of the passed in attributes
@@ -149,7 +150,9 @@ angular.module('ion-autocomplete', []).directive('ionAutocomplete', [
                     ionAutocompleteController.selectItem = function (item) {
 
                         // clear the search query when an item is selected
-                        ionAutocompleteController.searchQuery = undefined;
+                        if (ionAutocompleteController.clearInputAfterSelection === "true") {
+                          ionAutocompleteController.searchQuery = undefined;
+                        }
 
                         // return if the max selected items is not equal to 1 and the maximum amount of selected items is reached
                         if (ionAutocompleteController.maxSelectedItems &&
