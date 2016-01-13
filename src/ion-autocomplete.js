@@ -150,7 +150,8 @@ angular.module('ion-autocomplete', []).directive('ionAutocomplete', [
                     ionAutocompleteController.selectItem = function (item) {
 
                         // clear the search query when an item is selected
-                        if (ionAutocompleteController.clearInputAfterSelection === "true") {
+                        if (ionAutocompleteController.clearInputAfterSelection === "true" ||
+                            ionAutocompleteController.clearInputAfterSelection === true) {
                           ionAutocompleteController.searchQuery = undefined;
                         }
 
