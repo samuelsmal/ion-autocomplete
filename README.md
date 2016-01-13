@@ -62,6 +62,7 @@ The ion-autocomplete component has the following features:
 - Configure a callback when an item is clicked/removed
 - Configure a callback when the done button is clicked
 - Configure all labels used in the component
+- Configure the `ngModel.$render` method
 
 # Installation
 
@@ -268,6 +269,8 @@ You are able to set the `max-selected-items` attribute to any number to set the 
 Then the user is just able to select three items out of the returned items and also delete them again. The given `ng-model` is an 
 array if multiple items are selected.
 
+If `max-selected-items` is not defined the number of selected items is unlimited.
+
 ### The `items-clicked-method`
 
 You are able to pass a function to the `items-clicked-method` attribute to be notified when an item is clicked. The name of the 
@@ -321,6 +324,26 @@ And pass in the callback method in the directive:
 ```
 
 Then you get a callback object with the removed item and the selected items.
+
+### The `model-render-method` callback
+
+You are able to pass a function to the `model-render-method` attribute, this
+method is then used to render the model in the input field.
+
+```javascript
+$scope.newModelRenderMethod = function (item) {
+  return (item.title !== '' ? item.title : 'WHUAA');
+}
+```
+
+### The `clear-input-after-selection` option
+
+This options allows you to clear the input after a selection, or not. Defaults to true.
+This options either accepts strings or booleans.
+
+```html
+<input ion-autocomplete [...] clear-input-after-selection="true">
+```
 
 ### External model
 
