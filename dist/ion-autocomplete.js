@@ -467,7 +467,7 @@ angular.module('ion-autocomplete', []).directive('ionAutocomplete', [
 
                     // render the view value of the model
                     ngModelController.$render = function () {
-                        element.val(ionAutocompleteController.getItemValue(ngModelController.$viewValue, ionAutocompleteController.itemViewValueKey));
+                        element.val(ionAutocompleteController.modelRenderMethod(ngModelController.$viewValue));
                     };
 
                     // set the view value of the model
