@@ -336,6 +336,10 @@ $scope.newModelRenderMethod = function (item) {
 }
 ```
 
+```html
+<input ion-autocomplete [...] model-render-method="newModelRenderMethod(item)">
+```
+
 ### The `clear-input-after-selection` option
 
 This options allows you to clear the input after a selection, or not. Defaults to true.
