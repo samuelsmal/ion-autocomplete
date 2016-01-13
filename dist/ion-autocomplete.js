@@ -471,15 +471,19 @@ angular.module('ion-autocomplete', []).directive('ionAutocomplete', [
                     };
 
                     // set the view value of the model
-                    ngModelController.$formatters.push(function (modelValue) {
+                    if (ionAutocompleteController.itemViewValueKey) {
+                      ngModelController.$formatters.push(function (modelValue) {
                         var viewValue = ionAutocompleteController.getItemValue(modelValue, ionAutocompleteController.itemViewValueKey);
                         return viewValue == undefined ? "" : viewValue;
-                    });
+                      });
+                    }
 
                     // set the model value of the model
-                    ngModelController.$parsers.push(function (viewValue) {
+                    if (ionAutocompleteController.itemValueKey) {
+                      ngModelController.$parsers.push(function (viewValue) {
                         return ionAutocompleteController.getItemValue(viewValue, ionAutocompleteController.itemValueKey);
-                    });
+                      });
+                    }
 
                 });
 
