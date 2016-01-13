@@ -165,7 +165,8 @@ angular.module('ion-autocomplete', []).directive('ionAutocomplete', [
                         }
 
                         // return if the max selected items is not equal to 1 and the maximum amount of selected items is reached
-                        if (ionAutocompleteController.maxSelectedItems != "1" &&
+                        if (ionAutocompleteController.maxSelectedItems &&
+                            ionAutocompleteController.maxSelectedItems != "1" &&
                             angular.isArray(ionAutocompleteController.selectedItems) &&
                             ionAutocompleteController.maxSelectedItems == ionAutocompleteController.selectedItems.length) {
                             return;
