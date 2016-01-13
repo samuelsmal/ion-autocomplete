@@ -24,6 +24,7 @@ angular.module('ion-autocomplete', []).directive('ionAutocomplete', [
                 itemsRemovedMethod: '&',
                 modelToItemMethod: '&',
                 cancelButtonClickedMethod: '&',
+                modelRenderMethod: '&',
                 placeholder: '@',
                 cancelLabel: '@',
                 selectItemsLabel: '@',
@@ -125,6 +126,11 @@ angular.module('ion-autocomplete', []).directive('ionAutocomplete', [
                     // append the template to body
                     $document.find('body').append(searchInputElement);
 
+                    if (!angular.isDefined(attrs.modelRenderMethod)) {
+                      ionAutocompleteController.modelRenderMethod = function (item) {
+                        return ionAutocompleteController.getItemValue(item, ionAutocompleteController.itemViewValueKey);
+                      }
+                    }
 
                     // returns the value of an item
                     ionAutocompleteController.getItemValue = function (item, key) {
