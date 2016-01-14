@@ -29,12 +29,13 @@
   ],
   "authors": [
     "Danny Povolotski <dannypovolotski@gmail.com>",
-    "Guy Brand <admin@guylabs.org>"
+    "Guy Brand <admin@guylabs.org>",
+    "Samuel von Baussnern <samuel.vonbaussnern@gmail.com>"
   ],
-  "homepage": "https://github.com/guylabs/ion-autocomplete",
+  "homepage": "https://github.com/samuelsmal/ion-autocomplete",
   "repository": {
     "type": "git",
-    "url": "https://github.com/guylabs/ion-autocomplete.git"
+    "url": "https://github.com/samuelsmal/ion-autocomplete.git"
   },
   "devDependencies": {
     "ionic": "driftyco/ionic-bower#1.1.1",
