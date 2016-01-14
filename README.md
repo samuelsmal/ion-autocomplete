@@ -1,100 +1,100 @@
 ion-autocomplete
 ================
-[![Build Status](https://travis-ci.org/guylabs/ion-autocomplete.svg?branch=master)](https://travis-ci.org/guylabs/ion-autocomplete)
-[![Coverage Status](https://img.shields.io/coveralls/guylabs/ion-autocomplete.svg)](https://coveralls.io/r/guylabs/ion-autocomplete)
-[![Bower version](https://badge.fury.io/bo/ion-autocomplete.svg)](http://badge.fury.io/bo/ion-autocomplete)
+[![build status](https://travis-ci.org/guylabs/ion-autocomplete.svg?branch=master)](https://travis-ci.org/guylabs/ion-autocomplete)
+[![coverage status](https://img.shields.io/coveralls/guylabs/ion-autocomplete.svg)](https://coveralls.io/r/guylabs/ion-autocomplete)
+[![bower version](https://badge.fury.io/bo/ion-autocomplete.svg)](http://badge.fury.io/bo/ion-autocomplete)
 [![npm version](https://badge.fury.io/js/ion-autocomplete.svg)](http://badge.fury.io/js/ion-autocomplete)
 
-> Configurable Ionic directive for an autocomplete dropdown.
+> configurable ionic directive for an autocomplete dropdown.
 
-#Table of contents
+#table of contents
 
-- [Demo](#demo)
-- [Introduction](#introduction)
-- [Features](#features)
-- [Installation](#installation)
-- [Ionic compatibility](#ionic-compatibility)
-- [Usage](#usage)
-    - [Configurable options](#configurable-options)
-        - [The `items-method`](#the-items-method)
-        - [The `items-method-value-key`](#the-items-method-value-key)
-        - [The `item-value-key`](#the-item-value-key)
-        - [The `item-view-value-key`](#the-item-view-value-key)
-        - [The `max-selected-items`](#the-max-selected-items)
-        - [The `items-clicked-method`](#the-items-clicked-method)
-        - [The `items-removed-method`](#the-items-removed-method)
-        - [External model](#external-model)
-        - [The `model-to-item-method`](#the-model-to-item-method)
-        - [The `cancel-button-clicked-method`](#the-cancel-button-clicked-method)
-        - [ComponentId](#component-id)
-        - [Placeholder](#placeholder)
-        - [Cancel button label](#cancel-button-label)
-        - [Select items label](#select-items-label)
-        - [Selected items label](#selected-items-label)
-        - [Template url](#template-url)
-        - [Template data](#template-data)
-        - [Loading icon](#loading-icon)
-        - [Manage externally](#manage-externally)
-    - [Using expressions in value keys](#using-expressions-in-value-keys)
-    - [Debouncing](#debouncing)
-- [Release notes](#release-notes)
-- [Acknowledgements](#acknowledgements)
-- [License](#license)
+- [demo](#demo)
+- [introduction](#introduction)
+- [features](#features)
+- [installation](#installation)
+- [ionic compatibility](#ionic-compatibility)
+- [usage](#usage)
+    - [configurable options](#configurable-options)
+        - [the `items-method`](#the-items-method)
+        - [the `items-method-value-key`](#the-items-method-value-key)
+        - [the `item-value-key`](#the-item-value-key)
+        - [the `item-view-value-key`](#the-item-view-value-key)
+        - [the `max-selected-items`](#the-max-selected-items)
+        - [the `items-clicked-method`](#the-items-clicked-method)
+        - [the `items-removed-method`](#the-items-removed-method)
+        - [external model](#external-model)
+        - [the `model-to-item-method`](#the-model-to-item-method)
+        - [the `cancel-button-clicked-method`](#the-cancel-button-clicked-method)
+        - [componentid](#component-id)
+        - [placeholder](#placeholder)
+        - [cancel button label](#cancel-button-label)
+        - [select items label](#select-items-label)
+        - [selected items label](#selected-items-label)
+        - [template url](#template-url)
+        - [template data](#template-data)
+        - [loading icon](#loading-icon)
+        - [manage externally](#manage-externally)
+    - [using expressions in value keys](#using-expressions-in-value-keys)
+    - [debouncing](#debouncing)
+- [release notes](#release-notes)
+- [acknowledgements](#acknowledgements)
+- [license](#license)
 
-# Demo
+# demo
 
-You can find a live demo on [Codepen](http://codepen.io/guylabs/pen/GJmwMw) or see it in action in the following image:
+you can find a live demo on [codepen](http://codepen.io/guylabs/pen/gjmwmw) or see it in action in the following image:
 
-![Animated demo](https://github.com/guylabs/ion-autocomplete/raw/master/demo.gif)
+![animated demo](https://github.com/guylabs/ion-autocomplete/raw/master/demo.gif)
 
-# Introduction
+# introduction
 
-For one of my private projects I needed an autocomplete component in Ionic. I searched a lot and found some plain Angular autocompletes, but these had too much other dependencies and mostly didn't look that good within Ionic. Then one day I stumbled upon the [ion-google-place](https://github.com/israelidanny/ion-google-place) project which was exactly what I was looking for, except that it was just working with the Google Places API. So I forked the project and made it configurable such that you can add the service you need. The differences between the ion-google-place project and the ion-autocomplete are listed in the features.
+for one of my private projects i needed an autocomplete component in ionic. i searched a lot and found some plain angular autocompletes, but these had too much other dependencies and mostly didn't look that good within ionic. then one day i stumbled upon the [ion-google-place](https://github.com/israelidanny/ion-google-place) project which was exactly what i was looking for, except that it was just working with the google places api. so i forked the project and made it configurable such that you can add the service you need. the differences between the ion-google-place project and the ion-autocomplete are listed in the features.
 
-# Features
+# features
 
-The ion-autocomplete component has the following features:
-- Multiple selection support
-- Configurable service which provides the items to list
-- Allow to define the maximum number of selected items
-- Configure what is stored in the model and what is seen in the list
-- Configure the template used to show the autocomplete component
-- Configure a callback when an item is clicked/removed
-- Configure a callback when the done button is clicked
-- Configure all labels used in the component
-- Configure the `ngModel.$render` method
+the ion-autocomplete component has the following features:
+- multiple selection support
+- configurable service which provides the items to list
+- allow to define the maximum number of selected items
+- configure what is stored in the model and what is seen in the list
+- configure the template used to show the autocomplete component
+- configure a callback when an item is clicked/removed
+- configure a callback when the done button is clicked
+- configure all labels used in the component
+- configure the `ngmodel.$render` method
 
-# Installation
+# installation
 
-1. Use bower to install the new module:
+1. use bower to install the new module:
 ```bash
 bower install ion-autocomplete --save
 ```
-2. Import the `ion-autocomplete` javascript and css file into your HTML file:
+2. import the `ion-autocomplete` javascript and css file into your html file:
 ```html
 <script src="lib/ion-autocomplete/dist/ion-autocomplete.js"></script>
 <link href="lib/ion-autocomplete/dist/ion-autocomplete.css" rel="stylesheet">
 ```
 
-You can also compile the style sheet yourself and add the SCSS file to your main SCSS file:
+you can also compile the style sheet yourself and add the scss file to your main scss file:
 
 ```scss
 @import 'lib/ion-autocomplete/dist/ion-autocomplete.scss';
 ```
 
-3. Add `ion-autocomplete` as a dependency on your Ionic app:
+3. add `ion-autocomplete` as a dependency on your ionic app:
 ```javascript
-angular.module('myApp', [
+angular.module('myapp', [
   'ionic',
   'ion-autocomplete'
 ]);
 ```
 
-# Ionic compatibility
+# ionic compatibility
 
-The ion-autocomplete component is running with the following Ionic versions:
+the ion-autocomplete component is running with the following ionic versions:
 
-ion-autocomplete version | Ionic version
+ion-autocomplete version | ionic version
 ------------------------ | -------------
 0.0.2 - 0.1.2 | 1.0.0-beta.14
 0.2.0 - 0.2.1 | 1.0.0-rc.3
@@ -102,29 +102,33 @@ ion-autocomplete version | Ionic version
 0.3.0 - 0.3.1 | 1.1.0
 0.3.2 - latest | 1.1.1
 
-# Usage
+# usage
 
-To use the `ion-autocomplete` directive in single select mode you need set the `max-selected-items` attribute and add the following snippet to your template:
+to use the `ion-autocomplete` directive in single select mode you need set the `max-selected-items` attribute and add the following snippet to your template:
+
 ```html
 //usage with the attribute restriction
 <input ion-autocomplete type="text" readonly="readonly" class="ion-autocomplete" autocomplete="off" max-selected-items="1" />
 ```
 
-If you want to use it in multiple select mode you do not need to add anything special, just the following snippet to your template: 
+if you want to use it in multiple select mode you do not need to add anything special, just the following snippet to your template:
 ```html
 //usage with the attribute restriction
 <input ion-autocomplete type="text" readonly="readonly" class="ion-autocomplete" autocomplete="off" />
 ```
 
-Check out the next chapter on how to configure the directive.
+## configurable options
 
-## Configurable options
+In general a boolean parameter is checked against the following regex:
+`/^(true|yes|t|y|1)$/i`. so anything from `yes` to `1` over `true` will be
+looked on as `true`. the rest is `false`.
 
 ### The `items-method`
 
-You are able to pass in a callback method which gets called when the user changes the value of the search input field. This is
-normally a call to the back end which retrieves the items for the specified query. Here is a small sample which will
-return a static item of the query:
+You are able to pass in a callback method which gets called when the user
+changes the value of the search input field. This is normally a call to the
+back end which retrieves the items for the specified query. Here is a small
+sample which will return a static item of the query:
 
 Define the callback in your scope:
 ```javascript
@@ -266,27 +270,27 @@ You are able to set the `max-selected-items` attribute to any number to set the 
 <input ion-autocomplete type="text" readonly="readonly" class="ion-autocomplete" autocomplete="off" ng-model="model" max-selected-items="3" />
 ```
 
-Then the user is just able to select three items out of the returned items and also delete them again. The given `ng-model` is an 
+Then the user is just able to select three items out of the returned items and also delete them again. The given `ng-model` is an
 array if multiple items are selected.
 
 If `max-selected-items` is not defined the number of selected items is unlimited.
 
 ### The `items-clicked-method`
 
-You are able to pass a function to the `items-clicked-method` attribute to be notified when an item is clicked. The name of the 
+You are able to pass a function to the `items-clicked-method` attribute to be notified when an item is clicked. The name of the
 parameter of the function must be `callback`. Here is an example:
 
 Define the callback in your scope:
 ```javascript
 $scope.clickedMethod = function (callback) {
     // print out the selected item
-    console.log(callback.item); 
-    
+    console.log(callback.item);
+
     // print out the component id
     console.log(callback.componentId);
-    
+
     // print out the selected items if the multiple select flag is set to true and multiple elements are selected
-    console.log(callback.selectedItems); 
+    console.log(callback.selectedItems);
 }
 ```
 
@@ -299,7 +303,7 @@ Then you get a callback object with the clicked/selected item and the selected i
 
 ### The `items-removed-method`
 
-You are able to pass a function to the `items-removed-method` attribute to be notified when an item is removed from a multi-select list. The name of the 
+You are able to pass a function to the `items-removed-method` attribute to be notified when an item is removed from a multi-select list. The name of the
 parameter of the function must be `callback`. It is similar to items-clicked-method.  This attribute has no defined behaviour for a single select list.
 
 Here is an example:
@@ -308,13 +312,13 @@ Define the callback in your scope:
 ```javascript
 $scope.removedMethod = function (callback) {
     // print out the removed item
-    console.log(callback.item); 
+    console.log(callback.item);
 
     // print out the component id
     console.log(callback.componentId);
-    
+
     // print out the selected items
-    console.log(callback.selectedItems); 
+    console.log(callback.selectedItems);
 }
 ```
 
@@ -351,16 +355,16 @@ This options either accepts strings or booleans.
 
 ### External model
 
-The two way binded external model (`external-model` attribute on the component) is used to prepopulate the selected items with the model value. The [`model-to-item-method`](#the-model-to-item-method) is used to get the view item to the model and then the item is selected in the 
-component. Be aware that the `external-model` is not updated by the component when an item is selected. It is just used to prepopulate or clear the selected items. If you need to get the current selected items you are able 
+The two way binded external model (`external-model` attribute on the component) is used to prepopulate the selected items with the model value. The [`model-to-item-method`](#the-model-to-item-method) is used to get the view item to the model and then the item is selected in the
+component. Be aware that the `external-model` is not updated by the component when an item is selected. It is just used to prepopulate or clear the selected items. If you need to get the current selected items you are able
 to read the value of the `ng-model`. For an example have a look at the [`model-to-item-method`](#the-model-to-item-method) documentation.
 
 If you need to clear the selected items then you are able to set the `external-model` to an empty array (another value is not clearing the selected items).
 
 ### The `model-to-item-method`
 
-This method is used if you want to prepopulate the model of the `ion-autocomplete` component. The [external model](#external-model) needs 
-to have the same data as it would have when you select the items by hand. The component then takes the model values 
+This method is used if you want to prepopulate the model of the `ion-autocomplete` component. The [external model](#external-model) needs
+to have the same data as it would have when you select the items by hand. The component then takes the model values
 and calls the specified `model-to-item-method` to resolve the item from the back end and select it such that it is preselected.
 
 Here a small example:
@@ -392,17 +396,17 @@ Note that the parameter for the `model-to-item-method` needs to be named `modelV
 
 ### The `cancel-button-clicked-method`
 
-You are able to pass a function to the `cancel-button-clicked-method` attribute to be notified when the cancel button is clicked to close the modal. The name of the 
+You are able to pass a function to the `cancel-button-clicked-method` attribute to be notified when the cancel button is clicked to close the modal. The name of the
 parameter of the function must be `callback`. Here is an example:
 
 Define the callback in your scope:
 ```javascript
-$scope.cancelButtonClickedMethod = function (callback) {    
+$scope.cancelButtonClickedMethod = function (callback) {
     // print out the component id
     console.log(callback.componentId);
-    
+
     // print out the selected items
-    console.log(callback.selectedItems); 
+    console.log(callback.selectedItems);
 }
 ```
 
@@ -415,15 +419,15 @@ Then you get a callback object with the selected items and the component id.
 
 ### Component Id
 
-The component id is an attribute on the `ion-autocomplete` component which sets a given id to the component. This id is then returned in 
+The component id is an attribute on the `ion-autocomplete` component which sets a given id to the component. This id is then returned in
 the callback object of the [`items-clicked-method`](#the-items-clicked-method) and as a second parameter of the [`items-method`](#the-items-method).
 Here an example:
 ```html
 <input ion-autocomplete type="text" readonly="readonly" class="ion-autocomplete" autocomplete="off" ng-model="model" component-id="component1" />`
 ```
 
-You are able to set this is on each component if you have multiple components built up in a ng-repeat where you do not want to have multiple `items-method` 
-for each component because you want to display other items in each component. You will also get it in the `items-clicked-method` callback object such that you just 
+You are able to set this is on each component if you have multiple components built up in a ng-repeat where you do not want to have multiple `items-method`
+for each component because you want to display other items in each component. You will also get it in the `items-clicked-method` callback object such that you just
 need to define one callback method and you can distinguish the calls with the `componentId` attribute right inside the method.
 
 ### Placeholder
@@ -462,13 +466,13 @@ You are also able to set an own template for the autocomplete component (default
 <input ion-autocomplete type="text" readonly="readonly" class="ion-autocomplete" autocomplete="off" ng-model="model" template-url="templates/template.html" />`
 ```
 
-This way you are able to override the default template (the `template` variable [here](https://github.com/guylabs/ion-autocomplete/blob/master/src/ion-autocomplete.js#L68)) 
+This way you are able to override the default template (the `template` variable [here](https://github.com/guylabs/ion-autocomplete/blob/master/src/ion-autocomplete.js#L68))
 and use your own template. The component will use the default template if the `template-url` is not defined.
 
 You are able to use all the configurable attributes as expressions in your template. I would advise to use the default template as base template
 and then add your custom additions to it.
 
-> Please also take care when you change how the items are shown or what method is called if an item is clicked, 
+> Please also take care when you change how the items are shown or what method is called if an item is clicked,
 > because changing this could make the component unusable.
 
 You will need to set the proper `randomCssClass` for the outer most div
@@ -485,8 +489,8 @@ container in your template and you can get the value by using the
 
 ### Template data
 
-If you change the template with the `template-url` and want to pass in additional data then you are able to set 
-the `template-data` attribute on the directive. If you for example have a `templateData.testData` expression in your own 
+If you change the template with the `template-url` and want to pass in additional data then you are able to set
+the `template-data` attribute on the directive. If you for example have a `templateData.testData` expression in your own
 template like this:
 ```html
 ...
@@ -508,13 +512,13 @@ Then the expression in your template gets resolved properly.
 
 ### Loading icon
 
-If you want to display a loading icon when the `items-method` promise gets resolved then you need to set the `loading-icon` 
-attribute to a value given by the Ionic spinner: http://ionicframework.com/docs/api/directive/ionSpinner. Then the spinner should 
-be shown at the right side of the search input field. 
+If you want to display a loading icon when the `items-method` promise gets resolved then you need to set the `loading-icon`
+attribute to a value given by the Ionic spinner: http://ionicframework.com/docs/api/directive/ionSpinner. Then the spinner should
+be shown at the right side of the search input field.
 
 ### Manage externally
 
-To manage the `ion-autocomplete` component externally means that you need to handle when the search modal is shown. To enable this functionality 
+To manage the `ion-autocomplete` component externally means that you need to handle when the search modal is shown. To enable this functionality
 you need to set the `manage-externally` attribute to `true` and then you can call the `showModal()` method on the controller. Here an example:
 
 ```javascript
@@ -529,15 +533,19 @@ this.clickButton = function () {
 }
 ```
 
-Then you will need to click on the button to open the search modal. This functionality is useful if the user wants to edit the selected item inside the 
+Then you will need to click on the button to open the search modal. This functionality is useful if the user wants to edit the selected item inside the
 input field after she/he selected the item/s.
 
 ### Selected items
 
-If you want to clear the selected items programmatically, then you are able to set the `selected-items` attribute with a two way binded model value which then gets updated 
+If you want to clear the selected items programmatically, then you are able to set the `selected-items` attribute with a two way binded model value which then gets updated
 when the items get selected. If you want to clear them just set the given model value to an empty array.
 
 Please *do not* use it for pre populating the selected items. For this use the standard `ng-model` value and [the `model-to-item-method`](#the-model-to-item-method).
+
+### Close on select
+
+If you want to close the modal after a selection set this parameter to `true`. Defaults to `false`.
 
 ### Expand behaviour on specific key presses
 
@@ -583,9 +591,9 @@ name attribute of the child object:
 ## Debouncing
 
 If you want to debounce the search input field request, then you are able to set the `ng-model-options` attribute on the input field where you define the `ion-autocomplete`
-directive. These options will then be added to the search input field. Be aware that when you add a debounce the update of the model value will also be debounced the 
+directive. These options will then be added to the search input field. Be aware that when you add a debounce the update of the model value will also be debounced the
  same amount as the request to the `items-method`. Here a small example:
- 
+
 ```html
 <input ion-autocomplete type="text" readonly="readonly" class="ion-autocomplete" autocomplete="off" ng-model="model" ng-model-options="{debounce:1000}" />
 ```
