@@ -539,6 +539,21 @@ when the items get selected. If you want to clear them just set the given model 
 
 Please *do not* use it for pre populating the selected items. For this use the standard `ng-model` value and [the `model-to-item-method`](#the-model-to-item-method).
 
+### Expand behaviour on specific key presses
+
+Currently only `ENTER (13)` and `BACKSPACE (8)` are supported. Just add one or multiple of the following attributes to the definition of the `ion-autocomplete` tag:
+
+- `addOnEnter`: Adds the top item (as this is seen as the best match).
+- `removeOnBackspace`: Is only active if the search query is empty. It selects the last selected item on the first press, on the second it removes this item.
+
+```html
+<input ion-autocomplete
+       type="text"
+       [...]
+       add-on-enter
+       remove-on-backspace>
+```
+
 ## Using expressions in value keys
 
 All value keys are parsed with the Angular `$parse` service such that you are able to use expressions like in the following
